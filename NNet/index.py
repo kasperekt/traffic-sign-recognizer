@@ -10,7 +10,6 @@ from keras.layers.pooling import MaxPooling2D
 from keras.optimizers import SGD
 from keras.callbacks import LearningRateScheduler, ModelCheckpoint
 from keras import backend as K
-K.set_image_data_format('channels_first')
 
 
 NUM_CLASSES = 43
@@ -19,9 +18,9 @@ IMG_SIZE = 48
 
 def preprocess_img(img):
     # Histogram normalization in v channel
-    hsv = color.rgb2hsv(img)
-    hsv[:, :, 2] = exposure.equalize_hist(hsv[:, :, 2])
-    img = color.hsv2rgb(hsv)
+    # hsv = color.rgb2hsv(img)
+    # hsv[:, :, 2] = exposure.equalize_hist(hsv[:, :, 2])
+    # img = color.hsv2rgb(hsv)
 
     # central square crop
     min_side = min(img.shape[:-1])
@@ -32,9 +31,6 @@ def preprocess_img(img):
 
     # rescale to standard size
     img = transform.resize(img, (IMG_SIZE, IMG_SIZE))
-
-    # roll color axis to axis 0
-    img = np.rollaxis(img, -1)
 
     return img
 
@@ -47,7 +43,7 @@ def cnn_model():
     model = Sequential()
 
     model.add(Conv2D(32, (3, 3), padding='same',
-                     input_shape=(3, IMG_SIZE, IMG_SIZE),
+                     input_shape=(IMG_SIZE, IMG_SIZE, 3),
                      activation='relu'))
     model.add(Conv2D(32, (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
