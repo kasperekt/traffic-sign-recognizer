@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrafficSignRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-4k-qED">
+                                <rect key="frame" x="0.0" y="44" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g0E-jc-sCn">
+                                        <rect key="frame" x="8" y="8" width="150" height="150"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g0E-jc-sCn" secondAttribute="bottom" constant="489" id="5wI-zo-OjB"/>
+                                    <constraint firstAttribute="trailing" secondItem="g0E-jc-sCn" secondAttribute="trailing" constant="217" id="XOl-Zq-ZAQ"/>
+                                    <constraint firstItem="g0E-jc-sCn" firstAttribute="leading" secondItem="1pg-4k-qED" secondAttribute="leading" constant="8" id="b2M-TK-Anj"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uan-KE-Ahf">
+                                <rect key="frame" x="128" y="748" width="118" height="30"/>
+                                <state key="normal" title="Start recognizing"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's that?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPF-X2-5uT">
+                                <rect key="frame" x="16" y="719.66666666666663" width="343" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uan-KE-Ahf" secondAttribute="trailing" constant="129" id="Gc2-xd-v6g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1pg-4k-qED" secondAttribute="bottom" constant="87" id="KqV-Wb-E1G"/>
+                            <constraint firstItem="g0E-jc-sCn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="OvL-rb-HNi"/>
+                            <constraint firstItem="LPF-X2-5uT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XBx-3s-bYt"/>
+                            <constraint firstItem="1pg-4k-qED" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hYT-wi-4bY"/>
+                            <constraint firstItem="Uan-KE-Ahf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="lsj-l6-nue"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LPF-X2-5uT" secondAttribute="trailing" constant="16" id="n00-zm-2ZX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1pg-4k-qED" secondAttribute="trailing" id="oR5-WH-VFr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uan-KE-Ahf" secondAttribute="bottom" id="qb8-oM-QeQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LPF-X2-5uT" secondAttribute="bottom" constant="38" id="sic-ys-5Pf"/>
+                            <constraint firstItem="1pg-4k-qED" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yz3-xW-yHe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="g0E-jc-sCn" id="czz-kH-Vnu"/>
+                        <outlet property="previewView" destination="1pg-4k-qED" id="3b8-Fe-05W"/>
+                        <outlet property="resultLabel" destination="LPF-X2-5uT" id="foK-l5-dUG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.26600985221674"/>
+        </scene>
+    </scenes>
+</document>
