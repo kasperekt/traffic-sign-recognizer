@@ -17,7 +17,7 @@ class TrafficSignModelInitError: Error {
 class TrafficSignModel {
     let model: VNCoreMLModel!
     var visionRequests = [VNCoreMLRequest]()
-    var onClassificationResult: (() -> Void)?
+    var onClassificationResult: ((VNClassificationObservation) -> Void)?
     
     init() throws {
         do {
@@ -38,13 +38,12 @@ class TrafficSignModel {
             return
         }
         
-//        guard let results = request.results as? [VNClassificationObservation] else { return }
         guard let results = request.results?.compactMap({ $0 as? VNClassificationObservation }) else {
             print("No results found")
             return
         }
         
         guard let bestResult = results.first else { return }
-        print(bestResult.identifier, bestResult.confidence)
+        self.onClassificationResult?(bestResult)
     }
 }
