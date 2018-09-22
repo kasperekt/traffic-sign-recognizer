@@ -3,7 +3,6 @@
 //  TrafficSignRecognizer
 //
 //  Created by Tomasz Kasperek on 15.09.2018.
-//  Copyright © 2018 PUT. All rights reserved.
 //
 
 import UIKit

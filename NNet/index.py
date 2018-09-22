@@ -17,11 +17,6 @@ IMG_SIZE = 48
 
 
 def preprocess_img(img):
-    # Histogram normalization in v channel
-    # hsv = color.rgb2hsv(img)
-    # hsv[:, :, 2] = exposure.equalize_hist(hsv[:, :, 2])
-    # img = color.hsv2rgb(hsv)
-
     # central square crop
     min_side = min(img.shape[:-1])
     centre = img.shape[0] // 2, img.shape[1] // 2
@@ -83,12 +78,10 @@ def main():
         labels.append(label)
 
     X = np.array(imgs, dtype='float32')
-    # Make one hot targets
     Y = np.eye(NUM_CLASSES, dtype='uint8')[labels]
 
     model = cnn_model()
 
-    # let's train the model using SGD + momentum
     lr = 0.01
     sgd = SGD(lr=lr, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='categorical_crossentropy',

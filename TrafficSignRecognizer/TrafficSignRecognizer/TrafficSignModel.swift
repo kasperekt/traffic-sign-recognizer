@@ -3,7 +3,6 @@
 //  TrafficSignDetector
 //
 //  Created by Tomasz Kasperek on 10.09.2018.
-//  Copyright © 2018 UX Dream. All rights reserved.
 //
 
 import Foundation
